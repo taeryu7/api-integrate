@@ -1,0 +1,82 @@
+API 연동
+
+API 를 호출하기 위해서 axios 라는 라이브러리를 설치해야한다.
+yarn add axios
+
+axios를 사용해서 GET, PUT, POST, DELETE 등의 메서드로 API 요청을 할 수 있다.
+↓메서드들에 대하여 잘 모르시는 경우에는 REST API 에 대한 글을 한번 읽어볼것.
+https://meetup.nhncloud.com/posts/92
+
+REST API 를 사용 할 때에는 하고 싶은 작업에 따라 다른 메서드로 요청을 할 수 있는데 메서드들은 다음 의미를 가지고 있다.
+GET: 데이터 조회
+POST: 데이터 등록
+PUT: 데이터 수정
+DELETE: 데이터 제거
+이 메서드 외에도 PATCH, HEAD 와 같은 메서드들도 있다.
+
+axios 의 사용법
+import axios from 'axios';
+axios.get('/users/1');
+
+get 이 위치한 자리에는 메서드 이름을 소문자로 넣는다. 예를 들어서 새로운 데이터를 등록하고 싶다면 axios.post() 를 사용하면된다.
+파라미터에는 API 의 주소를 넣는다.
+axios.post('/users', {
+  username: 'blabla',
+  name: 'blabla'
+});
+
+↓ 이번에 API 연동연습을 할 연습용 API 주소다.
+https://jsonplaceholder.typicode.com/users
+결과물은 다음과 같은 형식으로 이루어져있다.
+[
+  {
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+    "address": {
+      "street": "Kulas Light",
+      "suite": "Apt. 556",
+      "city": "Gwenborough",
+      "zipcode": "92998-3874",
+      "geo": {
+        "lat": "-37.3159",
+        "lng": "81.1496"
+      }
+    },
+    "phone": "1-770-736-8031 x56442",
+    "website": "hildegard.org",
+    "company": {
+      "name": "Romaguera-Crona",
+      "catchPhrase": "Multi-layered client-server neural-net",
+      "bs": "harness real-time e-markets"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Ervin Howell",
+    "username": "Antonette",
+    "email": "Shanna@melissa.tv",
+    "address": {
+      "street": "Victor Plains",
+      "suite": "Suite 879",
+      "city": "Wisokyburgh",
+      "zipcode": "90566-7771",
+      "geo": {
+        "lat": "-43.9509",
+        "lng": "-34.4618"
+      }
+    },
+    "phone": "010-692-6593 x09125",
+    "website": "anastasia.net",
+    "company": {
+      "name": "Deckow-Crist",
+      "catchPhrase": "Proactive didactic contingency",
+      "bs": "synergize scalable supply-chains"
+    }
+  },
+  (...)
+]
+
+
+
